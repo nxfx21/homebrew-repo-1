@@ -1,14 +1,21 @@
 cask "appleblox@dev" do
-  version :latest
-  sha256 :no_check
+  version "0.9.0-dev.27"
+  sha256 arm:   "40ec30d73a05c74985bb346857fcc603dd7b55f5d7f9a96d3b2d2e6c3ac4d6b4",
+         intel: "394438760ed7a3a04857dc008e07c4440fe33ecde13cf1a6295ba20c23021e28"
 
-  # Nightly build URL; {arch} will select arm64 or x64
-  url "https://nightly.link/AppleBlox/appleblox/workflows/build/dev/AppleBlox-#{version}-dev.#{arch}.dmg.zip"
-
+  url "https://nightly.link/AppleBlox/appleblox/workflows/build/dev/AppleBlox-#{version}_#{arch}.dmg.zip"
   name "AppleBlox (Dev)"
   desc "⚠️ Nightly development build of AppleBlox. Not recommended for daily use. Things could break at any time."
   homepage "https://appleblox.com/"
 
+  livecheck do
+    url "https://raw.githubusercontent.com/AppleBlox/appleblox/dev/package.json"
+    strategy :json do |json|
+      json["version"]
+    end
+  end
+
+  auto_updates true
   conflicts_with cask: "appleblox"
 
   depends_on macos: ">= :high_sierra"
@@ -17,6 +24,9 @@ cask "appleblox@dev" do
   app "AppleBlox.app"
 
   zap trash: [
-    "~/Library/Application Support/AppleBlox",
+    "~/Library/Caches/ch.origaming.appleblox",
+    "~/Library/HTTPStorages/ch.origaming.appleblox",
+    "~/Library/Preferences/ch.origaming.appleblox.plist",
+    "~/Library/Saved Application State/ch.origaming.appleblox.savedState",
   ]
 end
