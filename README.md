@@ -2,16 +2,14 @@
 
 Official Homebrew tap for [AppleBlox](https://appleblox.com/).
 
-AppleBlox is a Roblox launcher for **MacOS**, inspired by [Bloxstrap](https://github.com/pizzaboxer/bloxstrap). It includes features such as DiscordRPC and Fast-flags, with ongoing development for additional functionality.
+AppleBlox is a Roblox launcher for **macOS**, inspired by [Bloxstrap](https://github.com/pizzaboxer/bloxstrap). It includes features such as DiscordRPC and Fast-flags, with ongoing development for additional functionality.
 
 ## Installation
 
 To add this tap to your Homebrew installation:
 
-##### For now,
-
 ```zsh
-brew tap nxfx21/homebrew-repo
+brew tap AppleBlox/homebrew-repo
 ```
 
 ## Available Casks
